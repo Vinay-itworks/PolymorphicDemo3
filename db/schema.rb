@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_06_121437) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_06_122346) do
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "industry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "contact"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "country"
     t.string "state"
@@ -21,5 +36,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_06_121437) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable"
+  end
+
+  create_table "owners", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 end
